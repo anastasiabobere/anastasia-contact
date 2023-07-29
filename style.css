@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+  font-family: "Victor Mono", monospace;
+  height: 100%;
+}
+.icons {
+  display: flex;
+  justify-content: center;
+
+  gap: 0.7rem;
+}
+
+#animation-bg {
+  color: rgb(232, 231, 226);
+  text-align: center;
+  height: 100vh;
+
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 14rem 10rem;
+  letter-spacing: 0.7rem;
+}
+.text {
+  animation: textDown 4s ease;
+
+  text-align: center;
+  align-items: center;
+}
+p {
+  font-size: 30px;
+  margin-bottom: 1.7rem;
+}
+h1 {
+  font-size: 70px;
+
+  margin-bottom: 1.7rem;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(232, 231, 226);
+  font-size: 2rem;
+  border-radius: 50%;
+  padding-left: 1.3rem;
+}
+a:hover {
+  opacity: 0.9;
+}
+@keyframes textDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@media only screen and (max-width: 700px) {
+  .text {
+    text-align: center;
+  }
+  .container {
+    letter-spacing: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+  p {
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .container {
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .text {
+    align-items: center;
+  }
+  h1 {
+    font-size: 25px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .container {
+    align-items: center;
+  }
+}

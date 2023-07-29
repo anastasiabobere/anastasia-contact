@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="author" content=" Anastasia Bobere" />
+    <meta name="description" content="Contact page" />
+    <meta name="keywords" content="Anastasia Bobere contact" />
+    <script
+      src="https://kit.fontawesome.com/1995a9df69.js"
+      crossorigin="anonymous"></script>
+    <title>Anastasia Bobere</title>
+  </head>
+  <body>
+    <div id="animation-bg">
+      <div class="text">
+        <div class="container">
+          <h1>Anastasia Bobere</h1>
+          <p>Web Developer</p>
+        </div>
+        <div class="icons">
+          <a href="https://github.com/anastasiabobere" target="_blank"
+            ><i
+              class="fa-brands fa-square-github"
+              style="color: rgb(232, 231, 226)"></i>
+          </a>
+          <a href="https://www.instagram.com/nastiabobere_/" target="_blank"
+            ><i
+              class="fa-brands fa-square-instagram"
+              style="color: rgb(232, 231, 226)"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/anastasia-bobere-3887a5262/"
+            target="_blank"
+            ><i
+              class="fa-brands fa-linkedin"
+              style="color: rgb(232, 231, 226)"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100052234093463"
+            target="_blank"
+            ><i
+              class="fa-brands fa-square-facebook"
+              style="color: rgb(232, 231, 226)"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    <script>
+      VANTA.BIRDS({
+        el: "#animation-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        backgroundColor: 0x270e59,
+        color1: 0x2c2ced,
+        color2: 0x577df4,
+        wingSpan: 27.0,
+        separation: 23.0,
+        quantity: 4.0,
+      });
+    </script>
+  </body>
+</html>
