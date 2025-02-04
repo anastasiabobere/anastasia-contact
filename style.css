@@ -4,11 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  overflow: hidden;
-  font-family: "Victor Mono", monospace;
-  height: 100%;
-}
+
 .icons {
   display: flex;
   justify-content: center;
@@ -17,6 +13,9 @@ body {
 }
 
 #animation-bg {
+  overflow: hidden;
+  font-family: "Victor Mono", monospace;
+  height: 100%;
   color: rgb(232, 231, 226);
   text-align: center;
   height: 100vh;
