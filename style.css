@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #261442;
+  overflow: hidden;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -12,68 +17,90 @@ header {
   padding: 1rem 10rem;
   background-color: rgba(33, 3, 56, 0.4);
   border-bottom: 2px solid white;
-  position: fixed; /* Change from sticky to fixed */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100; /* Ensures it stays above other elements */
-}
-
-.icons {
-  display: flex;
-  justify-content: center;
-  gap: 0.7rem;
-  margin-bottom: 1.7rem;
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.7rem;
-}
-.links a {
-  font-size: 1.2rem;
-  margin-bottom: 1.7rem;
+  z-index: 100;
 }
 
 #animation-bg {
-  overflow: hidden;
-  font-family: "Victor Mono", monospace;
-  height: 100%;
-  color: rgb(232, 231, 226);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   height: 100vh;
-  background-image: url("");
+  padding: 2rem;
+  font-family: "Victor Mono", monospace;
+  color: rgb(232, 231, 226);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 14rem 10rem;
-  letter-spacing: 0.7rem;
 }
 #animation-bg .text {
   animation: textDown 4s ease;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-}
-#animation-bg .text p {
-  font-size: 30px;
-  margin-bottom: 1.7rem;
+  gap: 0.8rem;
+  letter-spacing: 0.4rem;
 }
 #animation-bg .text h1 {
   font-size: 70px;
   margin-bottom: 1.7rem;
 }
-
-a {
-  text-decoration: none;
-  color: rgb(232, 231, 226);
-  font-size: 2rem;
-  border-radius: 50%;
-  padding-left: 1.3rem;
+#animation-bg .text p {
+  font-size: 30px;
+  margin-bottom: 1.7rem;
 }
-a:hover {
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 1.7rem;
+}
+.icons a {
+  font-size: 2rem;
+  color: rgb(232, 231, 226);
+  line-height: 1;
+  padding: 0;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+.icons a:hover {
   opacity: 0.9;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 480px;
+  margin-top: 0.5rem;
+}
+.links a {
+  display: block;
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  color: rgb(232, 231, 226);
+  text-decoration: underline;
+  text-decoration-color: rgba(232, 231, 226, 0.45);
+  text-underline-offset: 4px;
+  letter-spacing: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  padding: 0.3rem 0;
+  line-height: 1.5;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.links a:hover {
+  color: #ff5c98;
+  text-decoration-color: #ff5c98;
+  opacity: 1;
 }
 
 @keyframes textDown {
@@ -84,46 +111,146 @@ a:hover {
     transform: translateY(0);
   }
 }
+@media only screen and (max-width: 1024px) {
+  header {
+    padding: 1rem 5rem;
+  }
+  #animation-bg .text h1 {
+    font-size: 60px;
+  }
+  #animation-bg .text p {
+    font-size: 28px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 1rem 3rem;
+  }
+  #animation-bg .text {
+    letter-spacing: 0.3rem;
+  }
+  #animation-bg .text h1 {
+    font-size: 50px;
+  }
+  #animation-bg .text p {
+    font-size: 26px;
+  }
+  .icons {
+    gap: 0.7rem;
+  }
+  .icons a {
+    font-size: 1.7rem;
+  }
+}
 @media only screen and (max-width: 700px) {
-  .text {
-    text-align: center;
+  header {
+    padding: 1rem 2rem;
   }
-  .container {
-    letter-spacing: 0.6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  #animation-bg .text {
+    letter-spacing: 0.25rem;
   }
-  h1 {
+  #animation-bg .text h1 {
     font-size: 40px;
   }
-  p {
-    font-size: 25px;
+  #animation-bg .text p {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  header {
+    padding: 1rem 1.5rem;
+  }
+  #animation-bg .text {
+    letter-spacing: 0.2rem;
+  }
+  #animation-bg .text h1 {
+    font-size: 34px;
+  }
+  #animation-bg .text p {
+    font-size: 19px;
+  }
+  .icons {
+    gap: 0.5rem;
+  }
+  .icons a {
+    font-size: 1.5rem;
+  }
+  .links {
+    max-width: 100%;
+    padding: 0 1rem;
   }
 }
 @media only screen and (max-width: 500px) {
-  h1 {
-    font-size: 30px;
+  header {
+    padding: 0.8rem 1rem;
   }
-  p {
-    font-size: 15px;
+  #animation-bg .text {
+    letter-spacing: 0.15rem;
   }
-  .container {
-    align-items: center;
+  #animation-bg .text h1 {
+    font-size: 28px;
+  }
+  #animation-bg .text p {
+    font-size: 16px;
+  }
+  .icons a {
+    font-size: 1.3rem;
+  }
+  .links {
+    padding: 0 0.8rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #animation-bg .text {
+    letter-spacing: 0.1rem;
+  }
+  #animation-bg .text h1 {
+    font-size: 24px;
+  }
+  #animation-bg .text p {
+    font-size: 14px;
+  }
+  .icons {
+    gap: 0.3rem;
+  }
+  .icons a {
+    font-size: 1.15rem;
+  }
+  .links {
+    padding: 0 0.5rem;
   }
 }
 @media only screen and (max-width: 350px) {
-  .text {
-    align-items: center;
+  #animation-bg .text {
+    letter-spacing: 0.08rem;
   }
-  h1 {
-    font-size: 25px;
+  #animation-bg .text h1 {
+    font-size: 22px;
   }
-  p {
-    font-size: 15px;
+  #animation-bg .text p {
+    font-size: 13px;
   }
-  .container {
-    align-items: center;
+  .icons a {
+    font-size: 1rem;
+  }
+  .links a {
+    font-size: 0.78rem;
+  }
+}
+@media only screen and (max-width: 300px) {
+  #animation-bg .text {
+    letter-spacing: 0.04rem;
+  }
+  #animation-bg .text h1 {
+    font-size: 19px;
+  }
+  #animation-bg .text p {
+    font-size: 12px;
+  }
+  .icons a {
+    font-size: 0.9rem;
+  }
+  .links a {
+    font-size: 0.68rem;
   }
 }/*# sourceMappingURL=style.css.map */

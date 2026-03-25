@@ -1,13 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Victor+Mono:wght@100;200;300;400;500;600;700&display=swap");
 
-// Global Styles
+// ─── Global ───────────────────────────────────────────────────────────────────
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-// Header Styles
+body {
+  background-color: #261442; // matches your Vanta background color
+  overflow: hidden; // removes scroll since it's a single full-height page
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
 header {
   display: flex;
   justify-content: center;
@@ -22,70 +27,99 @@ header {
   z-index: 100;
 }
 
-.icons {
-  display: flex;
-  justify-content: center;
-  gap: 0.7rem;
-  margin-bottom: 1.7rem;
-}
-
-.links {
+// ─── Animation Background ────────────────────────────────────────────────────
+#animation-bg {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.7rem;
-
-  a {
-    font-size: 1.2rem;
-    margin-bottom: 1.7rem;
-  }
-}
-
-// Animation Background Section
-#animation-bg {
-  overflow: hidden;
-  font-family: "Victor Mono", monospace;
-  color: rgb(232, 231, 226);
+  align-items: center;
   text-align: center;
   height: 100vh;
-  background-image: url("");
+  padding: 2rem;
+  font-family: "Victor Mono", monospace;
+  color: rgb(232, 231, 226);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 14rem 10rem;
-  letter-spacing: 0.7rem;
 
+  // letter-spacing only on headings, NOT inherited by links
   .text {
     animation: textDown 4s ease;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-
-    p {
-      font-size: 30px;
-      margin-bottom: 1.7rem;
-    }
+    gap: 0.8rem;
+    letter-spacing: 0.4rem;
 
     h1 {
       font-size: 70px;
       margin-bottom: 1.7rem;
     }
+
+    p {
+      font-size: 30px;
+      margin-bottom: 1.7rem;
+    }
   }
 }
 
-// Link Styles
-a {
-  text-decoration: none;
-  color: rgb(232, 231, 226);
-  font-size: 2rem;
-  border-radius: 50%;
-  padding-left: 1.3rem;
+// ─── Icons ────────────────────────────────────────────────────────────────────
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 1.7rem;
 
-  &:hover {
-    opacity: 0.9;
+  a {
+    font-size: 2rem;
+    color: rgb(232, 231, 226);
+    line-height: 1;
+    padding: 0;
+    letter-spacing: normal;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 }
 
-// Keyframes for Animation
+// ─── Links (email + resume) ───────────────────────────────────────────────────
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 480px;
+  margin-top: 0.5rem;
+
+  a {
+    display: block;
+    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+    color: rgb(232, 231, 226);
+    text-decoration: underline; // makes links visually distinct
+    text-decoration-color: rgba(232, 231, 226, 0.45); // subtle, not harsh
+    text-underline-offset: 4px;
+    letter-spacing: normal; // prevent inherited 0.4rem spacing
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    padding: 0.3rem 0;
+    line-height: 1.5;
+    transition:
+      color 0.2s,
+      text-decoration-color 0.2s;
+
+    &:hover {
+      color: #ff5c98; // matches your Vanta accent color
+      text-decoration-color: #ff5c98;
+      opacity: 1;
+    }
+  }
+}
+
+// ─── Keyframes ────────────────────────────────────────────────────────────────
 @keyframes textDown {
   from {
     transform: translateY(-100px);
@@ -95,214 +129,179 @@ a {
   }
 }
 
-// ─── Media Queries ───────────────────────────────────────────────────────────
+// ─── Media Queries ────────────────────────────────────────────────────────────
 
-// Large tablets / small laptops (max 1024px)
+// Large tablets / small laptops
 @media only screen and (max-width: 1024px) {
-  #animation-bg {
-    padding: 12rem 6rem;
-    letter-spacing: 0.5rem;
-
-    .text {
-      h1 {
-        font-size: 60px;
-      }
-
-      p {
-        font-size: 28px;
-      }
-    }
-  }
-
   header {
     padding: 1rem 5rem;
   }
-}
 
-// Tablets (max 768px)
-@media only screen and (max-width: 768px) {
-  #animation-bg {
-    padding: 10rem 4rem;
-    letter-spacing: 0.4rem;
-
-    .text {
-      h1 {
-        font-size: 50px;
-      }
-
-      p {
-        font-size: 26px;
-      }
+  #animation-bg .text {
+    h1 {
+      font-size: 60px;
+    }
+    p {
+      font-size: 28px;
     }
   }
+}
 
+// Tablets
+@media only screen and (max-width: 768px) {
   header {
     padding: 1rem 3rem;
   }
 
-  a {
+  #animation-bg .text {
+    letter-spacing: 0.3rem;
+    h1 {
+      font-size: 50px;
+    }
+    p {
+      font-size: 26px;
+    }
+  }
+
+  .icons {
+    gap: 0.7rem;
+  }
+  .icons a {
     font-size: 1.7rem;
+  }
+}
+
+// Large phones
+@media only screen and (max-width: 700px) {
+  header {
+    padding: 1rem 2rem;
+  }
+
+  #animation-bg .text {
+    letter-spacing: 0.25rem;
+    h1 {
+      font-size: 40px;
+    }
+    p {
+      font-size: 22px;
+    }
+  }
+}
+
+// Phones
+@media only screen and (max-width: 600px) {
+  header {
+    padding: 1rem 1.5rem;
+  }
+
+  #animation-bg .text {
+    letter-spacing: 0.2rem;
+    h1 {
+      font-size: 34px;
+    }
+    p {
+      font-size: 19px;
+    }
   }
 
   .icons {
     gap: 0.5rem;
   }
-
-  .links a {
-    font-size: 1.1rem;
-  }
-}
-
-// Large phones / small tablets (max 700px)
-@media only screen and (max-width: 700px) {
-  #animation-bg {
-    padding: 8rem 2rem;
-  }
-
-  .text {
-    text-align: center;
-  }
-
-  .container {
-    letter-spacing: 0.6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  h1 {
-    font-size: 40px;
-  }
-
-  p {
-    font-size: 25px;
-  }
-
-  header {
-    padding: 1rem 2rem;
-  }
-}
-
-// Phones (max 600px)
-@media only screen and (max-width: 600px) {
-  #animation-bg {
-    padding: 7rem 1.5rem;
-    letter-spacing: 0.3rem;
-  }
-
-  a {
+  .icons a {
     font-size: 1.5rem;
-    padding-left: 0.9rem;
   }
 
-  .links a {
-    font-size: 1rem;
-  }
-
-  .icons {
-    gap: 0.4rem;
-    margin-bottom: 1.3rem;
+  .links {
+    max-width: 100%;
+    padding: 0 1rem;
   }
 }
 
-// Small phones (max 500px)
+// Small phones
 @media only screen and (max-width: 500px) {
-  #animation-bg {
-    padding: 6rem 1rem;
-    letter-spacing: 0.2rem;
+  header {
+    padding: 0.8rem 1rem;
   }
 
-  h1 {
-    font-size: 30px;
+  #animation-bg .text {
+    letter-spacing: 0.15rem;
+    h1 {
+      font-size: 28px;
+    }
+    p {
+      font-size: 16px;
+    }
   }
 
-  p {
-    font-size: 15px;
-  }
-
-  .container {
-    align-items: center;
-  }
-
-  a {
+  .icons a {
     font-size: 1.3rem;
-    padding-left: 0.7rem;
   }
+  .links {
+    padding: 0 0.8rem;
+  }
+}
 
-  .links a {
-    font-size: 0.9rem;
-    margin-bottom: 1.2rem;
+// Very small phones
+@media only screen and (max-width: 400px) {
+  #animation-bg .text {
+    letter-spacing: 0.1rem;
+    h1 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 14px;
+    }
   }
 
   .icons {
     gap: 0.3rem;
   }
-
-  header {
-    padding: 0.8rem 1rem;
+  .icons a {
+    font-size: 1.15rem;
+  }
+  .links {
+    padding: 0 0.5rem;
   }
 }
 
-// Very small phones (max 400px)
-@media only screen and (max-width: 400px) {
-  #animation-bg {
-    padding: 5rem 0.8rem;
-  }
-
-  h1 {
-    font-size: 26px;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  a {
-    font-size: 1.2rem;
-    padding-left: 0.5rem;
-  }
-
-  .links a {
-    font-size: 0.85rem;
-  }
-}
-
-// Tiny phones (max 350px)
+// Tiny phones
 @media only screen and (max-width: 350px) {
-  #animation-bg {
-    padding: 4.5rem 0.5rem;
-    letter-spacing: 0.1rem;
+  #animation-bg .text {
+    letter-spacing: 0.08rem;
+    h1 {
+      font-size: 22px;
+    }
+    p {
+      font-size: 13px;
+    }
   }
 
-  .text {
-    align-items: center;
-  }
-
-  h1 {
-    font-size: 25px;
-  }
-
-  p {
-    font-size: 15px;
-  }
-
-  .container {
-    align-items: center;
-  }
-
-  a {
-    font-size: 1.1rem;
-    padding-left: 0.4rem;
+  .icons a {
+    font-size: 1rem;
   }
 
   .links a {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
+    font-size: 0.78rem;
+  }
+}
+
+// Extra tiny phones
+@media only screen and (max-width: 300px) {
+  #animation-bg .text {
+    letter-spacing: 0.04rem;
+    h1 {
+      font-size: 19px;
+    }
+    p {
+      font-size: 12px;
+    }
   }
 
-  .icons {
-    gap: 0.2rem;
-    margin-bottom: 1rem;
+  .icons a {
+    font-size: 0.9rem;
+  }
+
+  .links a {
+    font-size: 0.68rem;
   }
 }
