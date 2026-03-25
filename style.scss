@@ -15,12 +15,13 @@ header {
   padding: 1rem 10rem;
   background-color: rgba(33, 3, 56, 0.4);
   border-bottom: 2px solid white;
-  position: fixed; /* Change from sticky to fixed */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100; /* Ensures it stays above other elements */
+  z-index: 100;
 }
+
 .icons {
   display: flex;
   justify-content: center;
@@ -39,11 +40,11 @@ header {
     margin-bottom: 1.7rem;
   }
 }
+
 // Animation Background Section
 #animation-bg {
   overflow: hidden;
   font-family: "Victor Mono", monospace;
-  height: 100%;
   color: rgb(232, 231, 226);
   text-align: center;
   height: 100vh;
@@ -94,8 +95,70 @@ a {
   }
 }
 
-// Media Queries
+// ─── Media Queries ───────────────────────────────────────────────────────────
+
+// Large tablets / small laptops (max 1024px)
+@media only screen and (max-width: 1024px) {
+  #animation-bg {
+    padding: 12rem 6rem;
+    letter-spacing: 0.5rem;
+
+    .text {
+      h1 {
+        font-size: 60px;
+      }
+
+      p {
+        font-size: 28px;
+      }
+    }
+  }
+
+  header {
+    padding: 1rem 5rem;
+  }
+}
+
+// Tablets (max 768px)
+@media only screen and (max-width: 768px) {
+  #animation-bg {
+    padding: 10rem 4rem;
+    letter-spacing: 0.4rem;
+
+    .text {
+      h1 {
+        font-size: 50px;
+      }
+
+      p {
+        font-size: 26px;
+      }
+    }
+  }
+
+  header {
+    padding: 1rem 3rem;
+  }
+
+  a {
+    font-size: 1.7rem;
+  }
+
+  .icons {
+    gap: 0.5rem;
+  }
+
+  .links a {
+    font-size: 1.1rem;
+  }
+}
+
+// Large phones / small tablets (max 700px)
 @media only screen and (max-width: 700px) {
+  #animation-bg {
+    padding: 8rem 2rem;
+  }
+
   .text {
     text-align: center;
   }
@@ -115,9 +178,41 @@ a {
   p {
     font-size: 25px;
   }
+
+  header {
+    padding: 1rem 2rem;
+  }
 }
 
+// Phones (max 600px)
+@media only screen and (max-width: 600px) {
+  #animation-bg {
+    padding: 7rem 1.5rem;
+    letter-spacing: 0.3rem;
+  }
+
+  a {
+    font-size: 1.5rem;
+    padding-left: 0.9rem;
+  }
+
+  .links a {
+    font-size: 1rem;
+  }
+
+  .icons {
+    gap: 0.4rem;
+    margin-bottom: 1.3rem;
+  }
+}
+
+// Small phones (max 500px)
 @media only screen and (max-width: 500px) {
+  #animation-bg {
+    padding: 6rem 1rem;
+    letter-spacing: 0.2rem;
+  }
+
   h1 {
     font-size: 30px;
   }
@@ -129,9 +224,57 @@ a {
   .container {
     align-items: center;
   }
+
+  a {
+    font-size: 1.3rem;
+    padding-left: 0.7rem;
+  }
+
+  .links a {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .icons {
+    gap: 0.3rem;
+  }
+
+  header {
+    padding: 0.8rem 1rem;
+  }
 }
 
+// Very small phones (max 400px)
+@media only screen and (max-width: 400px) {
+  #animation-bg {
+    padding: 5rem 0.8rem;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  a {
+    font-size: 1.2rem;
+    padding-left: 0.5rem;
+  }
+
+  .links a {
+    font-size: 0.85rem;
+  }
+}
+
+// Tiny phones (max 350px)
 @media only screen and (max-width: 350px) {
+  #animation-bg {
+    padding: 4.5rem 0.5rem;
+    letter-spacing: 0.1rem;
+  }
+
   .text {
     align-items: center;
   }
@@ -146,5 +289,20 @@ a {
 
   .container {
     align-items: center;
+  }
+
+  a {
+    font-size: 1.1rem;
+    padding-left: 0.4rem;
+  }
+
+  .links a {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .icons {
+    gap: 0.2rem;
+    margin-bottom: 1rem;
   }
 }
